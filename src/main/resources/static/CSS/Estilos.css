@@ -1,6 +1,12 @@
-#contenedorTitulo{
+/*#contenedorTitulo{
     text-align: center;
     color: purple;
+    border:1px solid;
+    width: 50%;
+    height: 450px;
+    centrar un div
+    margin: 0 auto; 
+    background-color: bisque;
 }
 
 .parrafoSecundario {
@@ -27,4 +33,143 @@ h2 {
 
 h3 {
     font-size: 1em;
+}
+
+p span#textoImportante{
+    color:crimson;
+}
+ejemplo
+div.Review button a{ 
+    font-size: 16px;
+    
+}
+
+a{
+    border: 2px solid navy;
+    background-color: darkblue;
+    color: white;
+    border-radius: 25px;
+    padding: 5px;
+    margin: 10px;
+}
+
+a:link{
+   color: darkorange; 
+    font-size: 20px;
+    
+}
+
+a:visited:{
+   color:red; 
+    
+}
+funciona cuando nos posicionamos sobre una ancla, y se coloca de otro color
+a:hover:{
+    background: green;
+    color:white;
+}
+
+a:active:{
+    background: purple;
+    color: white;
+}
+ 
+[name^="parra"]  aplica estilos a los textos con el name parra.. y busco el inicio de la palabra
+p[name^="parra"]{
+    font-zise: 50px;
+}
+
+[name$="parra"] busca similitudes al final de la palabra. 
+p[name$="parra"]{
+    font-zise: 50px;
+}
+
+[name*="parra"]  busco similitudes destro de la palabra.
+p[name*="parra"]{
+    font-zise: 50px;
+}
+*/
+
+#encabezado {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    height: 8%;
+    width: 100%;
+    background-color: #496D8D;
+    color: white;
+}
+
+#encabezado h1 {
+    display: inline;
+}
+
+#menu {
+    position: absolute;
+    top: 8%;
+    left: 0;
+    height: 4%;
+    width: 100%;
+    background-color: #9B8030;
+    color: black;
+}
+
+#menu a:visited {
+    color: navy;
+}
+
+#menu a:hover {
+    background-color: green;
+    color: white;
+}
+
+#barraLateral {
+    position: absolute;
+    top: 12%;
+    left: 0;
+    height: 81%;
+    width: 20%;
+    background-color: #8e27f6;
+    color: black;
+}
+
+#contenido {
+    position: absolute;
+    top: 12%;
+    left: 20%;
+    height: 81%;
+    width: 80%;
+    background-color: #24a1df;
+    color: black;
+    /*el overflow hace tener scroll*/
+    overflow: auto;
+}
+
+#piePagina {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 7%;
+    width: 100%;
+    background-color: #87f29b;
+    color: black;
+    text-align: center;
+}
+
+#encabezadoTabla {
+    font-size: 20px;
+    color: white;
+    background-color: cadetblue;
+}
+
+#tablaResumen tr {
+    font-size: 25px;
+}
+
+#tablaResumen tr:nth-child(odd) {
+    background-color: gold;
+}
+
+#tablaResumen tr:nth-child(even) {
+    background-color: coral;
 }
