@@ -7,22 +7,40 @@ import com.tienda.service.CategoriaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service // es un servicio que va a respinder cuando hagan un llamado a CategoriaService
 public class CategoriaServiceImpl implements CategoriaService{
     
-    @Autowired // cuando necesito un objeto de cierto tipo el se lo va a inyectar
-    private CategoriaDao categoriaDao;  // aqui esta esto cundo lo ocupo , se instancia solo
+    @Autowired
+    private CategoriaDao categoriaDao;
 
     @Override
-    public List<Categoria> getCategorias(boolean activo) {
-        List<Categoria> lista = categoriaDao.findAll();
-        
-        //Filtrar en caso de querer solo activos
-        if(activo){
-            lista.removeIf(c -> !c.isActivo());
+    @Transactional(readOnly = true)
+    public List<Categoria> getCategorias(boolean activos) {
+        var lista = categoriaDao.findAll();
+        if (activos) {
+            lista.removeIf(e -> !e.isActivo());
         }
         return lista;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Categoria getCategoria(Categoria categoria) {
+        return categoriaDao.findById(categoria.getIdCategoria()).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public void save(Categoria categoria) {
+        categoriaDao.save(categoria);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Categoria categoria) {
+        categoriaDao.delete(categoria);
     }
 }
