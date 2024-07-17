@@ -1,8 +1,8 @@
-
 package com.tienda.domain;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import lombok.Data;
 
 /**
@@ -11,11 +11,11 @@ import lombok.Data;
  */
 @Data // para utomaticamente crear los get and set
 @Entity
-@Table(name="categoria")
+@Table(name = "categoria")
 public class Categoria implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
@@ -23,8 +23,12 @@ public class Categoria implements Serializable {
     private String descripcion;
     private String rutaImagen; //Hibernate lo trasforma en Ruta_imagen
     private boolean activo;
-    
-    public Categoria(){
+
+    @OneToMany
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    List<Producto> productos;
+
+    public Categoria() {
     }
 
     public Categoria(String descripcion, String rutaImagen, boolean activo) {
@@ -33,4 +37,3 @@ public class Categoria implements Serializable {
         this.activo = activo;
     }
 }
-    

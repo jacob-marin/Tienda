@@ -88,6 +88,7 @@
                                             <td>[[${categoria.descripcion}]]</td>
                                             <!--si el campo es activo colocar activo, sino inactivo-->
                                             <td th:text="${categoria.activo} ? 'Activa' : 'Inactiva'" />
+                                            <!--botones eliminar y actualizar--> 
                                             <td><a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
                                                    class="btn btn-danger">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>

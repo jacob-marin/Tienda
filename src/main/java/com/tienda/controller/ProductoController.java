@@ -73,6 +73,7 @@ public class ProductoController {
     public String productoModificar(Producto producto, Model model) {
         producto = productoService.getProducto(producto);
         model.addAttribute("producto", producto);
+        
         List<Categoria> categorias = categoriaService.getCategorias(true);
         model.addAttribute("categorias",categorias);
         return "/producto/modifica";
