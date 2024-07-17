@@ -36,7 +36,8 @@
                             <div th:if="${productos != null and !productos.empty}">
                                 <table class="table table-striped table-hover">
                                     <thead class="table-dark">
-                                        <tr><th class="text-center">#</th>
+                                        <tr>
+                                            <th class="text-center">#</th>
                                             <th class="text-center">[[#{producto.descripcion}]]</th>
                                             <th class="text-center">[[#{producto.precio}]]</th>
                                             <th class="text-center">[[#{producto.existencias}]]</th>
@@ -150,6 +151,27 @@
                             <div class="card-footer text-center">
                                 <button type="submit" class="btn btn-warning">
                                     <i class="fas fa-check"></i> [[#{pruebas.nativo}]]
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+<!--//tarea-->
+                <div class="col-md-3" style="margin-left: 428px;">
+                    <form method="POST" th:action="@{/pruebas/query4}" 
+                          class="was-validated">
+                        <div class="card success">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="descripcionNom">[[#{pruebas.nombre.sub}]]</label>
+                                    <input type="text" class="form-control" 
+                                           th:value="${descripcionNom}"
+                                           th:name="descripcionNom" />    
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-warning">
+                                    <i class="fas fa-check"></i> [[#{pruebas.nombre}]]
                                 </button>
                             </div>
                         </div>
